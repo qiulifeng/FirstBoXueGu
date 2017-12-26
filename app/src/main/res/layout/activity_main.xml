@@ -104,8 +104,9 @@
             android:layout_height="27dp"
             android:layout_above="@id/bottom_bar_text_myinfo"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="3dp"
-            android:src="@drawable/main_exercises_icon"/>
+            android:src="@drawable/main_my_icon"/>
         </RelativeLayout>
     </LinearLayout>
     </RelativeLayout>

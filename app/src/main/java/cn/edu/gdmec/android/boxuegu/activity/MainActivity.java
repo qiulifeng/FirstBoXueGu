@@ -68,7 +68,7 @@ private ExercisesView mExercisesView;
     }
     private void initBottomBar(){
         mBottomlayout=(LinearLayout) findViewById(R.id.main_bottom_bar);
-        mCourseBtn=findViewById(R.id.bottom_bar_exercises_btn);
+        mCourseBtn=findViewById(R.id.bottom_bar_course_btn);
         mExercisesBtn=findViewById(R.id.bottom_bar_exercises_btn);
         mMyInfoBtn=findViewById(R.id.bottom_bar_myinfo_btn);
         tv_course=(TextView) findViewById(R.id.bottom_bar_text_course);
@@ -88,6 +88,10 @@ private ExercisesView mExercisesView;
                 selectDisplayView(0);
                 break;
             case R.id.bottom_bar_exercises_btn:
+                clearBottomImageState();
+                selectDisplayView(1);
+                break;
+            case R.id.bottom_bar_myinfo_btn:
                 clearBottomImageState();
                 selectDisplayView(2);
                 break;
