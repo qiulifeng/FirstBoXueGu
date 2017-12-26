@@ -9,7 +9,7 @@
         android:id="@+id/tv_subject"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:LineSpacingMultiplier="1.5"
+        android:lineSpacingMultiplier="1.5"
         android:textColor="#000000"
         android:textSize="14sp"/>
     <LinearLayout
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
-            android:LineSpacingMultiplier="1.5"
+            android:lineSpacingMultiplier="1.5"
             android:textColor="#000000"
             android:textSize="12sp"/>
     </LinearLayout>
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
-            android:LineSpacingMultiplier="1.5"
+            android:lineSpacingMultiplier="1.5"
             android:textColor="#000000"
             android:textSize="12sp"/>
     </LinearLayout>
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
-            android:LineSpacingMultiplier="1.5"
+            android:lineSpacingMultiplier="1.5"
             android:textColor="#000000"
             android:textSize="12sp" />
     </LinearLayout>
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
-            android:LineSpacingMultiplier="1.5"
+            android:lineSpacingMultiplier="1.5"
             android:textColor="#000000"
             android:textSize="12sp" />
     </LinearLayout>
