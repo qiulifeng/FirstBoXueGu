@@ -191,7 +191,7 @@ public class ExercisesDetailAdapter extends BaseAdapter {
                 }else {
                     selectedPosition.add(position + "");
                 }
-                onSelectListener.onSelectA(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d)
+                onSelectListener.onSelectA(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d);
             }
         });
         //当用户点击B选项的点击事件
@@ -204,7 +204,7 @@ public class ExercisesDetailAdapter extends BaseAdapter {
                 }else {
                     selectedPosition.add(position + "");
                 }
-                onSelectListener.onSelectB(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d)
+                onSelectListener.onSelectB(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d);
             }
         });
         //当用户点击C选项的点击事件
@@ -217,7 +217,7 @@ public class ExercisesDetailAdapter extends BaseAdapter {
                 }else {
                     selectedPosition.add(position + "");
                 }
-                onSelectListener.onSelectC(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d)
+                onSelectListener.onSelectC(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d);
             }
         });
         //当用户点击D选项的点击事件
@@ -230,7 +230,7 @@ public class ExercisesDetailAdapter extends BaseAdapter {
                 }else {
                     selectedPosition.add(position + "");
                 }
-                onSelectListener.onSelectD(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d)
+                onSelectListener.onSelectD(position,vh.iv_a, vh.iv_b, vh.iv_c, vh.iv_d);
             }
         });
         return convertView;
