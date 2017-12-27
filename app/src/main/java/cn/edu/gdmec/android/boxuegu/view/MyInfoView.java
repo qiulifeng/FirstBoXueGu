@@ -45,7 +45,7 @@ public class MyInfoView {
     }
 
     private void initView(){
-        mCurrentView = mInflater.inflate(R.layout.main_view_exercises,null);
+        mCurrentView = mInflater.inflate(R.layout.main_view_myinfo,null);
         ll_head = (LinearLayout) mCurrentView.findViewById(R.id.ll_head);
         iv_head_icon = (ImageView) mCurrentView.findViewById(R.id.iv_head_icon);
         rl_course_history = (RelativeLayout) mCurrentView.findViewById(R.id.rl_course_history);
