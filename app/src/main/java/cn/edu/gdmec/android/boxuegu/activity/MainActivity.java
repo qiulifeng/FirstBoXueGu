@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
+import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     /**
@@ -36,6 +37,7 @@ private ExercisesView mExercisesView;
 
     private View mExercisesBtn;
     private View mMyInfoBtn;
+    private MyInfoView mMyInfoView;
     private TextView tv_course;
     private TextView tv_exercises;
     private TextView tv_myInfo;
@@ -57,6 +59,9 @@ private ExercisesView mExercisesView;
         setListener();
         setInitStatus();
     }
+    /*
+    **获取界面UI控件
+     */
     private void init(){
         tv_back = (TextView) findViewById(R.id.tv_back);
         tv_main_title=(TextView) findViewById(R.id.tv_main_title);
@@ -167,6 +172,14 @@ private ExercisesView mExercisesView;
                 mExercisesView.showView();
                 break;
             case 2:
+                if (mMyInfoView == null){
+                    mMyInfoView = new MyInfoView(this);
+                    mBodyLayout.addView(mMyInfoView.getView());
+                }else {
+                    mMyInfoView.getView();
+                }
+                mMyInfoView.showView();
+
                 break;
         }
     }
@@ -182,7 +195,7 @@ private ExercisesView mExercisesView;
             }
         }
     }
-    protected long exitTime;
+    protected long exitTime;//记录第一次点击的时间
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -201,6 +214,9 @@ private ExercisesView mExercisesView;
         }
         return super.onKeyDown(keyCode, event);
     }
+    /*
+    **获取sharedpreference中的登录状态
+     */
     private boolean readLoginStatus(){
         SharedPreferences sp = getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         boolean isLogin = sp.getBoolean("isLogin",false);
@@ -208,9 +224,9 @@ private ExercisesView mExercisesView;
     }
     private void clearLoginStatus(){
         SharedPreferences sp = getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean("isLogin",false);
-        editor.putString("loginUserNmae","");
-        editor.commit();
+        SharedPreferences.Editor editor = sp.edit();//获取编辑器
+        editor.putBoolean("isLogin",false);//清除登录状态
+        editor.putString("loginUserNmae","");//清除登录时的用户名
+        editor.commit();//提交修改
     }
 }

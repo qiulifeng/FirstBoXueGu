@@ -30,17 +30,18 @@ private TextView tv_version;
         }catch (PackageManager.NameNotFoundException e){
             e.printStackTrace();
             tv_version.setText("v");
-        }
+        }//利用timer让此界面延迟3秒后跳转，timer有一个线程，这个线程不断执行task
         Timer timer = new Timer();
+        //timertask实现nable接口，timertask类表示在一个指定时间内执行的task
         TimerTask task=new TimerTask() {
             @Override
             public void run() {
-                Intent intent =new Intent(SplashActivity.this,LoginActivity.class);
+                Intent intent =new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(intent);
                 SplashActivity.this.finish();
             }
         };
-        timer.schedule(task,3000);
+        timer.schedule(task,3000);//设置这个task在延迟3秒后自动执行
 
     }
 }
