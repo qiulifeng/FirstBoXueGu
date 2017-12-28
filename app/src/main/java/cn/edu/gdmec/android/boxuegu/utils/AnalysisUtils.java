@@ -131,4 +131,5 @@ public class AnalysisUtils {
         String userName=sp.getString("loginUSerName","");//获取登录时的用户名
         return userName;
     }
+
 }
