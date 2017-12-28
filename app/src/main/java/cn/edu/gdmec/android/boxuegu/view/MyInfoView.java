@@ -29,7 +29,7 @@ public class MyInfoView {
     private ImageView iv_head_icon;
     private RelativeLayout rl_course_history;
     private RelativeLayout rl_setting;
-    private TextView tvuser_name;
+    private TextView tv_user_name;
 
     public MyInfoView(Context mContext){
         this.mContext = mContext;
@@ -51,7 +51,7 @@ public class MyInfoView {
         iv_head_icon = (ImageView) mCurrentView.findViewById(R.id.iv_head_icon);
         rl_course_history = (RelativeLayout) mCurrentView.findViewById(R.id.rl_course_history);
         rl_setting = (RelativeLayout) mCurrentView.findViewById(R.id.rl_setting);
-        tvuser_name = (TextView) mCurrentView.findViewById(R.id.tv_user_name);
+        tv_user_name = (TextView) mCurrentView.findViewById(R.id.tv_user_name);
         mCurrentView.setVisibility(View.VISIBLE);
 
         setLoginParams(readLoginStatus());
@@ -93,9 +93,9 @@ public class MyInfoView {
 
     private void setLoginParams(boolean isLogin) {
         if (isLogin){
-            tvuser_name.setText(AnalysisUtils.readLoginUserName(mContext));
+            tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
         }else {
-            tvuser_name.setText("点击登录");
+            tv_user_name.setText("点击登录");
         }
     }
 

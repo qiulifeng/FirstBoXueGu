@@ -26,15 +26,20 @@ public class LoginActivity extends AppCompatActivity {
     private EditText et_user_name;
     private String userName;
     private String psw;
+    private String spPsw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //设置此界面为竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
 
     }
+    /*
+    获取界面控件
+     */
 
     private void init() {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
@@ -52,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.finish();
             }
         });
-        //立即注册
+        //立即注册控件的点击事件
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,22 +66,23 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        //找回密码
+        //找回密码控件的点击事件
         tv_find_psw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,FindPswActivity.class);
+                startActivity(intent);
                 //跳转找回密码界面
             }
         });
-        //登录
+        //登录按钮的点击事件
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userName = et_user_name.getText().toString().trim();
                 psw = et_psw.getText().toString().trim();
                 String md5Psw = MD5Utils.md5(psw);
-                String spPsw = readPsw(userName);
-
+                spPsw = readPsw(userName);
 
                 if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(LoginActivity.this, "请输入用户名", Toast.LENGTH_SHORT).show();
@@ -93,8 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                     setResult(RESULT_OK,data);
                     LoginActivity.this.finish();
                     return;
-                }else if (!TextUtils.isEmpty(spPsw) && !md5Psw.equals(spPsw)) {
-                    Toast.makeText(LoginActivity.this, "输入的用户和密码一致", Toast.LENGTH_SHORT).show();
+                }else if (spPsw!=null&&!TextUtils.isEmpty(spPsw) && !md5Psw.equals(spPsw)) {
+                    Toast.makeText(LoginActivity.this, "输入的用户和密码不一致", Toast.LENGTH_SHORT).show();
                     return;
                 }else {
                     Toast.makeText(LoginActivity.this, "此用户名不存在", Toast.LENGTH_SHORT).show();
@@ -124,9 +130,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (data!=null){
+            //从注册页面传递过来的用户名
             String userName = data.getStringExtra("userName");
             if (!TextUtils.isEmpty(userName)){
                 et_user_name.setText(userName);
+                //设置光标的位置
                 et_user_name.setSelection(userName.length());
             }
         }
