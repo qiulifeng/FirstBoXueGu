@@ -34,6 +34,7 @@
     android:background="#E4E4E4"></View>
 
     <ListView
+        android:id="@+id/lv_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginBottom="55dp"

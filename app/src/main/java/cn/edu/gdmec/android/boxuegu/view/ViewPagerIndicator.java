@@ -26,6 +26,7 @@ public class ViewPagerIndicator extends LinearLayout {
     public ViewPagerIndicator(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setGravity(Gravity.CENTER);
+        this.context =context;
     }
     public void setCurrentPosition(int currentIndex){
         mIndex = currentIndex;
@@ -33,7 +34,7 @@ public class ViewPagerIndicator extends LinearLayout {
         int pex = 5;
         for (int i=0;i<mCount;i++){
             ImageView imageView = new ImageView(context);
-            if (mIndex==1){
+            if (mIndex==i){
                 imageView.setImageResource(R.drawable.indicator_on);
             }else{
                 imageView.setImageResource(R.drawable.indicator_off);
@@ -42,7 +43,7 @@ public class ViewPagerIndicator extends LinearLayout {
             addView(imageView);
         }
     }
-    public void  setcount(int count){
+    public void setCount(int count){
         this.mCount = count;
     }
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.view.CourseView;
 import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
 import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
@@ -34,7 +35,7 @@ private ExercisesView mExercisesView;
 
 
     private View mCourseBtn;
-
+    private CourseView mCourseView;
     private View mExercisesBtn;
     private View mMyInfoBtn;
     private MyInfoView mMyInfoView;
@@ -161,6 +162,13 @@ private ExercisesView mExercisesView;
     private void createView(int viewIndex){
         switch (viewIndex){
             case 0:
+                if (mCourseView == null){
+                    mCourseView = new CourseView(this);
+                    mBodyLayout.addView(mCourseView.getView());
+                }else{
+                    mCourseView.getView();
+                }
+                mCourseView.showView();
                 break;
             case 1:
                 if(mExercisesView==null){
