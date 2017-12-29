@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.boxuegu.bean;
+package cn.edu.gdmec.android.boxuegu.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
 
 /**
  * Created by student on 17/12/28.

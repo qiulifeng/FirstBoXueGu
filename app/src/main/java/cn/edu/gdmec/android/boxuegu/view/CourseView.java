@@ -19,7 +19,7 @@ import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.adapter.AdBannerAdapter;
-import cn.edu.gdmec.android.boxuegu.bean.CourseAdapter;
+import cn.edu.gdmec.android.boxuegu.adapter.CourseAdapter;
 import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
