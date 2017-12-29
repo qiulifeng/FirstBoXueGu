@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.bean.UserBean;
+import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 import cn.edu.gdmec.android.boxuegu.sqlite.SQLiteHelper;
 
 /**
@@ -68,7 +69,7 @@ public class DBUtils {
     /**
      * 保存视频播放记录
      */
-    public void saveVideoPlayList(VideoBean bean,String userName){
+    public void saveVideoPlayList(VideoBean bean, String userName){
         //判断如果里面有此播放记录则需要删除重新播放
         if (hasVideoPlay(bean.chapterId,bean.videoId,userName)){
             //删除之前存入的播放记录
@@ -127,9 +128,9 @@ public class DBUtils {
             bean = new VideoBean();
             bean.chapterId=cursor.getInt(cursor.getColumnIndex("chapterId"));
             bean.videoId=cursor.getInt(cursor.getColumnIndex("videoId"));
-            bean.videoPath=cursor.getInt(cursor.getColumnIndex("videoPath"));
-            bean.title=cursor.getInt(cursor.getColumnIndex("title"));
-            bean.secondTitle=cursor.getInt(cursor.getColumnIndex("secondTitle"));
+            bean.videoPath=cursor.getString(cursor.getColumnIndex("videoPath"));
+            bean.title=cursor.getString(cursor.getColumnIndex("title"));
+            bean.secondTitle=cursor.getString(cursor.getColumnIndex("secondTitle"));
             vbl.add(bean);
             bean = null;
         }

@@ -30,6 +30,7 @@ import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.adapter.VideoListAdapter;
 import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
+import cn.edu.gdmec.android.boxuegu.utils.DBUtils;
 
 public class VideoListActivity extends AppCompatActivity {
 
@@ -42,6 +43,7 @@ public class VideoListActivity extends AppCompatActivity {
     private TextView tv_chapter_intro;
     ScrollView sv_chapter_intro;
     private VideoListAdapter adapter;
+    private DBUtils db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

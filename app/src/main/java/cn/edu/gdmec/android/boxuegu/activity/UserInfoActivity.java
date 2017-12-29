@@ -146,7 +146,7 @@ private void sexDialog(String sex){
     final String items[]={"男","女"};
     AlertDialog.Builder builder = new AlertDialog.Builder(this);//先得到构造器
     builder.setTitle("性别");// 设置标题
-    builder.setSingleChoiceItems(items, sexFlag, new DialogInterface.OnCLickListener() {
+    builder.setSingleChoiceItems(items, sexFlag, new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which){//第二个参数是默认选中的哪个项
             dialog.dismiss();

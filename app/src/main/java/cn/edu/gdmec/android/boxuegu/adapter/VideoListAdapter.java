@@ -20,14 +20,14 @@ import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 
 public class VideoListAdapter extends BaseAdapter {
 
-    private Context context;
+    private Context mContext;
     private List<VideoBean> vbl; //视频列表数据
     private int selectedPosition = -1; //点击选中的位置
     private OnSelectListener onSelectListener;
 
 
     public VideoListAdapter(Context context, OnSelectListener onSelectListener) {
-        this.context = context;
+        this.mContext = context;
         this.onSelectListener = onSelectListener;
     }
 
@@ -52,8 +52,8 @@ public class VideoListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return vbl == null ? 0 : vbl.get(i);
+    public VideoBean getItem(int position) {
+        return vbl == null ? null : vbl.get(position);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class VideoListAdapter extends BaseAdapter {
         final ViewHolder vh;
         if (convertView == null) {
             vh = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.video_list_item, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.video_list_item, null);
             vh.tv_title = convertView.findViewById(R.id.tv_video_title);
             vh.iv_icon = convertView.findViewById(R.id.iv_left_icon);
             convertView.setTag(vh);
@@ -74,7 +74,7 @@ public class VideoListAdapter extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
 
         }
-        final VideoBean bean = vbl.get(position);
+        final VideoBean bean = getItem(position);
         vh.iv_icon.setImageResource(R.drawable.course_bar_icon);
         vh.tv_title.setTextColor(Color.parseColor("#333333"));
         if (bean != null) {
