@@ -134,6 +134,7 @@ public class DBUtils {
             vbl.add(bean);
             bean = null;
         }
+
         cursor.close();
         return vbl;
     }

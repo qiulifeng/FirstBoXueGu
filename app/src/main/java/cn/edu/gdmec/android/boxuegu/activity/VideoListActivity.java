@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -32,7 +33,7 @@ import cn.edu.gdmec.android.boxuegu.bean.VideoBean;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 import cn.edu.gdmec.android.boxuegu.utils.DBUtils;
 
-public class VideoListActivity extends AppCompatActivity {
+public class VideoListActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int chapterId;
     private String intro;
@@ -89,6 +90,15 @@ public class VideoListActivity extends AppCompatActivity {
                 }
             }
         });
+        lv_video_list.setAdapter(adapter);
+        tv_inttro.setOnClickListener(this);
+        tv_video.setOnClickListener(this);
+        adapter.setData(videoList);
+        tv_chapter_intro.setText(intro);
+        tv_inttro.setBackgroundColor(Color.parseColor("#30B4FF"));
+        tv_video.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        tv_inttro.setTextColor(Color.parseColor("#FFFFFF"));
+        tv_video.setTextColor(Color.parseColor("#000000"));
 
 
 
@@ -170,5 +180,29 @@ if (reader!=null){
 
 }
 return sb.toString();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.tv_intro:
+                lv_video_list.setVisibility(View.GONE);
+                sv_chapter_intro.setVisibility(View.VISIBLE);
+                tv_inttro.setBackgroundColor(Color.parseColor("#30B4FF"));
+                tv_video.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                tv_inttro.setTextColor(Color.parseColor("#FFFFFF"));
+                tv_video.setTextColor(Color.parseColor("#000000"));
+                break;
+            case R.id.tv_video:
+                lv_video_list.setVisibility(View.VISIBLE);
+                sv_chapter_intro.setVisibility(View.GONE);
+                tv_inttro.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                tv_video.setBackgroundColor(Color.parseColor("#30B4FF"));
+                tv_inttro.setTextColor(Color.parseColor("#000000"));
+                tv_video.setTextColor(Color.parseColor("#FFFFFF"));
+                break;
+            default:
+                break;
+        }
     }
 }
