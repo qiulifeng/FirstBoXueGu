@@ -22,17 +22,18 @@ import cn.edu.gdmec.android.boxuegu.view.CourseView;
 
 public class AdBannerAdapter extends FragmentStatePagerAdapter implements View.OnTouchListener{
 
-private List<CourseBean> cad1;
+private List<CourseBean> cadl;
     private Handler mHanlder;
 
     public AdBannerAdapter(FragmentManager fm) {
         super(fm);
-        cad1 = new ArrayList<CourseBean>();
+        cadl = new ArrayList<CourseBean>();
     }
     public AdBannerAdapter(FragmentManager fm,Handler handler) {
         super(fm);
-        cad1 = new ArrayList<CourseBean>();
         mHanlder = handler;
+        cadl = new ArrayList<CourseBean>();
+
     }
     /**
      *
@@ -41,7 +42,7 @@ private List<CourseBean> cad1;
      */
 
     public void setDatas(List<CourseBean> cad1){
-        this.cad1 = cad1;
+        this.cadl = cad1;
         notifyDataSetChanged();
     }
 
@@ -55,8 +56,8 @@ private List<CourseBean> cad1;
     @Override
     public Fragment getItem(int position) {
         Bundle args = new Bundle();
-        if (cad1.size()>0){
-            args.putString("ad",cad1.get(position % cad1.size()).icon);
+        if (cadl.size()>0){
+            args.putString("ad", cadl.get(position % cadl.size()).icon);
         }
         return AdBannerFragment.newInstance(args);
     }
@@ -66,11 +67,11 @@ private List<CourseBean> cad1;
         return Integer.MAX_VALUE;
     }
     public int getSize(){
-        return cad1 == null ? 0 : cad1.size();
+        return cadl == null ? 0 : cadl.size();
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View v, MotionEvent event) {
         mHanlder.removeMessages(CourseView.MSG_AD_SLID);
         return false;
     }

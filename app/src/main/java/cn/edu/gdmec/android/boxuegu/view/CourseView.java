@@ -12,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class CourseView implements View.OnTouchListener {
     private ArrayList<CourseBean> cadl;
 
 
-    private List<List<CourseBean>> cb1;
+    private List<List<CourseBean>> cbl;
     private View mCurrentView;
     private ListView lv_list;
     private CourseAdapter adapter;
@@ -43,11 +42,11 @@ public class CourseView implements View.OnTouchListener {
     private Handler mHandler;
     private AdBannerAdapter ada;
     private ViewPagerIndicator vpi;
-    private RelativeLayout adBannerLay;
+    private View adBannerLay;
 
     public CourseView(FragmentActivity context) {
         mContext = context;
-        mInflater = LayoutInflater.from(context);
+        mInflater = LayoutInflater.from(mContext);
     }
 private void createView(){
     mHandler = new MHandler();
@@ -63,7 +62,7 @@ private void createView(){
     private void getCourseData() {
         try {
             InputStream is = mContext.getResources().getAssets().open("chaptertitle.xml");
-            cb1 = AnalysisUtils.getCourseInfos(is);
+            cbl = AnalysisUtils.getCourseInfos(is);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -98,7 +97,7 @@ private void createView(){
         mCurrentView = mInflater.inflate(R.layout.main_view_course,null);
         lv_list = mCurrentView.findViewById(R.id.lv_list);
         adapter = new CourseAdapter(mContext);
-        adapter.setData(cb1);
+        adapter.setData(cbl);
         lv_list.setAdapter(adapter);
 
         adPager = mCurrentView.findViewById(R.id.vp_adverBanner);

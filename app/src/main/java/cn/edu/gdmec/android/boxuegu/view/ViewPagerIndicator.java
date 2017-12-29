@@ -34,7 +34,7 @@ public class ViewPagerIndicator extends LinearLayout {
         int pex = 5;
         for (int i=0;i<mCount;i++){
             ImageView imageView = new ImageView(context);
-            if (mIndex==1){
+            if (mIndex==i){
                 imageView.setImageResource(R.drawable.indicator_on);
             }else{
                 imageView.setImageResource(R.drawable.indicator_off);
