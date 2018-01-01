@@ -94,7 +94,7 @@ public class CourseAdapter extends BaseAdapter {
                     case 1: //右边
                         vh.tv_right_img_title.setText(bean.imgTitle);
                         vh.tv_right_title.setText(bean.title);
-                        setLeftImg(bean.id,vh.iv_right_img);
+                        setRightImg(bean.id,vh.iv_right_img);
                         vh.iv_right_img.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
