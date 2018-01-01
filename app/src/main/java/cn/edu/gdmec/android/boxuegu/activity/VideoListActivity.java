@@ -1,6 +1,5 @@
 package cn.edu.gdmec.android.boxuegu.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -18,14 +17,12 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.adapter.VideoListAdapter;
@@ -38,7 +35,7 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
     private int chapterId;
     private String intro;
     private ArrayList<VideoBean> videoList;
-    private TextView tv_inttro;
+    private TextView tv_intro;
     private TextView tv_video;
     private ListView lv_video_list;
     private TextView tv_chapter_intro;
@@ -59,11 +56,11 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
         intro = getIntent().getStringExtra("intro");
         db = DBUtils.getInstance(VideoListActivity.this);
         initData();
-        initView();
+        init();
     }
 
-    private void initView() {
-        tv_inttro = (TextView) findViewById(R.id.tv_intro);
+    private void init() {
+        tv_intro = (TextView) findViewById(R.id.tv_intro);
         tv_video = (TextView) findViewById(R.id.tv_video);
         lv_video_list = (ListView) findViewById(R.id.lv_video_list);
 
@@ -91,13 +88,13 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
             }
         });
         lv_video_list.setAdapter(adapter);
-        tv_inttro.setOnClickListener(this);
+        tv_intro.setOnClickListener(this);
         tv_video.setOnClickListener(this);
         adapter.setData(videoList);
         tv_chapter_intro.setText(intro);
-        tv_inttro.setBackgroundColor(Color.parseColor("#30B4FF"));
+        tv_intro.setBackgroundColor(Color.parseColor("#30B4FF"));
         tv_video.setBackgroundColor(Color.parseColor("#FFFFFF"));
-        tv_inttro.setTextColor(Color.parseColor("#FFFFFF"));
+        tv_intro.setTextColor(Color.parseColor("#FFFFFF"));
         tv_video.setTextColor(Color.parseColor("#000000"));
 
 
@@ -188,17 +185,17 @@ return sb.toString();
             case R.id.tv_intro:
                 lv_video_list.setVisibility(View.GONE);
                 sv_chapter_intro.setVisibility(View.VISIBLE);
-                tv_inttro.setBackgroundColor(Color.parseColor("#30B4FF"));
+                tv_intro.setBackgroundColor(Color.parseColor("#30B4FF"));
                 tv_video.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                tv_inttro.setTextColor(Color.parseColor("#FFFFFF"));
+                tv_intro.setTextColor(Color.parseColor("#FFFFFF"));
                 tv_video.setTextColor(Color.parseColor("#000000"));
                 break;
             case R.id.tv_video:
                 lv_video_list.setVisibility(View.VISIBLE);
                 sv_chapter_intro.setVisibility(View.GONE);
-                tv_inttro.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                tv_intro.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 tv_video.setBackgroundColor(Color.parseColor("#30B4FF"));
-                tv_inttro.setTextColor(Color.parseColor("#000000"));
+                tv_intro.setTextColor(Color.parseColor("#000000"));
                 tv_video.setTextColor(Color.parseColor("#FFFFFF"));
                 break;
             default:
