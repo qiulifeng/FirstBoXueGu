@@ -16,6 +16,7 @@ import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
 import cn.edu.gdmec.android.boxuegu.activity.PlayHistoryActivity;
 import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
+import cn.edu.gdmec.android.boxuegu.activity.UserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
 /**
@@ -27,7 +28,7 @@ public class MyInfoView {
     private final LayoutInflater mInflater;
     private View mCurrentView;
     private LinearLayout ll_head;
-    private ImageView iv_head_icon;
+    public ImageView iv_head_icon;
     private RelativeLayout rl_course_history;
     private RelativeLayout rl_setting;
     private TextView tv_user_name;
@@ -61,6 +62,8 @@ public class MyInfoView {
             public void onClick(View v){
                 //判断是否登录
                 if (readLoginStatus()){
+                    Intent intent = new Intent(mContext, UserInfoActivity.class);
+                    mContext.startActivity(intent);
                     //跳转到个人资料界面
                 }else {
                     Intent intent = new Intent(mContext, LoginActivity.class);
@@ -97,7 +100,7 @@ public class MyInfoView {
     private void setLoginParams(boolean isLogin) {
         if (isLogin){
             tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
-        }else {
+        }else{
             tv_user_name.setText("点击登录");
         }
     }
@@ -114,4 +117,5 @@ public class MyInfoView {
         }
         mCurrentView.setVisibility(View.VISIBLE);
     }
+
 }

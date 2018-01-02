@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -70,7 +71,10 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Toast.makeText(SettingActivity.this, "退出登录成功", Toast.LENGTH_SHORT).show();
-                clearLoginStatus();//清除登录状态和登录时的用户名
+                clearLoginStatus();
+
+
+                //清除登录状态和登录时的用户名
                 //把退出登录成功后的状态传递到MainActivity中
                 Intent data = new Intent();
                 data.putExtra("isLogin",false);
@@ -91,4 +95,6 @@ public class SettingActivity extends AppCompatActivity {
         editor.commit();//提交修改
 
     }
+
+
 }
