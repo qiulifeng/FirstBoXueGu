@@ -58,7 +58,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
         rl_nickName = (RelativeLayout) findViewById(R.id.rl_nickName);
         rl_sex = (RelativeLayout) findViewById(R.id.rl_sex);
         rl_signature = (RelativeLayout) findViewById(R.id.rl_signature);
-        tv_nickName = (TextView) findViewById(R.id.tv_user_name);
+        tv_nickName = (TextView) findViewById(R.id.tv_nickName);
         tv_user_name = (TextView) findViewById(R.id.tv_user_name);
         tv_sex = (TextView) findViewById(R.id.tv_sex);
         tv_signature = (TextView) findViewById(R.id.tv_signature);
@@ -79,6 +79,7 @@ private void initData(){
         //保存用户信息到数据库
         DBUtils.getInstance(this).saveUserInfo(bean);
     }
+    setValue(bean);
 }
 /*
     为界面控件设置值

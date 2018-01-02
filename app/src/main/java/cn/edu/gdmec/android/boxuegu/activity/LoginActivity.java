@@ -109,6 +109,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     *从SharedPreferences中根据用户名读取密码
+     */
+    private String readPsw(String userName) {
+        SharedPreferences sp = getSharedPreferences("loginInfo", MODE_PRIVATE);
+
+        return sp.getString(userName,"");
+    }
+
     private void saveLoginStatus(boolean status, String userName) {
         //loginInfo表示文件名
         SharedPreferences sp = getSharedPreferences("loginInfo", MODE_PRIVATE);
@@ -119,11 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private String readPsw(String userName) {
-        SharedPreferences sp = getSharedPreferences("loginInfo", MODE_PRIVATE);
 
-        return sp.getString(userName,"");
-    }
 
 
     @Override

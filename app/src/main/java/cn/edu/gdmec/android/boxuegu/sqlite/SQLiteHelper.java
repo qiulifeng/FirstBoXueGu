@@ -24,9 +24,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE  IF NOT EXISTS " + U_USERINFO +"( "
         + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + "userName VARCHAR,"//用户名
-        + "nickName VARCHAR,"//昵称
-        + "sex VARCHAR,"
+        + "userName VARCHAR, "//用户名
+        + "nickName VARCHAR, "//昵称
+        + "sex VARCHAR, "
          + "signature VARCHAR"//签名
         +")");
         //创建视频播放记录表
