@@ -36,7 +36,7 @@ public class DBUtils {
     public void saveUserInfo(UserBean bean){
         ContentValues cv = new ContentValues();
         cv.put("userName", bean.userName);
-        cv.put("nickName",bean.nickName);
+        cv.put("nickName", bean.nickName);
         cv.put("sex", bean.sex);
         cv.put("signature", bean.signature);
         db.insert(SQLiteHelper.U_USERINFO, null, cv);
@@ -45,7 +45,7 @@ public class DBUtils {
      * 获取个人信息
      */
     public UserBean getUserInfo(String userName){
-        String sql = "SELECT * FROM" +SQLiteHelper.U_USERINFO + "WHERE userName=?";
+        String sql = "SELECT * FROM " + SQLiteHelper.U_USERINFO + " WHERE userName=?";
         Cursor cursor = db.rawQuery(sql, new String[]{userName});
         UserBean bean = null;
         while(cursor.moveToNext()){
@@ -55,7 +55,7 @@ public class DBUtils {
             bean.sex=cursor.getString(cursor.getColumnIndex("sex"));
             bean.signature=cursor.getString(cursor.getColumnIndex("signature"));
         }
-        cursor.close();;
+        cursor.close();
         return bean;
     }
     /**
@@ -71,9 +71,9 @@ public class DBUtils {
      */
     public void saveVideoPlayList(VideoBean bean, String userName){
         //判断如果里面有此播放记录则需要删除重新播放
-        if (hasVideoPlay(bean.chapterId,bean.videoId,userName)){
+        if (hasVideoPlay(bean.chapterId, bean.videoId,userName)){
             //删除之前存入的播放记录
-            boolean isDelete = delVideoPlay(bean.chapterId,bean.videoId,userName);
+            boolean isDelete = delVideoPlay(bean.chapterId, bean.videoId,userName);
             if (!isDelete){
                 //没有删除成功时，则需跳出此方法不再执行
                 return;
@@ -81,12 +81,12 @@ public class DBUtils {
         }
         ContentValues cv = new ContentValues();
         cv.put("userName", userName);
-        cv.put("chapterId",bean.chapterId);
-        cv.put("videoId",bean.videoId);
-        cv.put("videoPath",bean.videoPath);
-        cv.put("title",bean.title);
-        cv.put("secondTitle",bean.secondTitle);
-        db.insert(SQLiteHelper.U_VIDEO_PLAY_LIST,null, cv);
+        cv.put("chapterId", bean.chapterId);
+        cv.put("videoId", bean.videoId);
+        cv.put("videoPath", bean.videoPath);
+        cv.put("title", bean.title);
+        cv.put("secondTitle", bean.secondTitle);
+        db.insert(SQLiteHelper.U_VIDEO_PLAY_LIST, null, cv);
     }
     /**
      * 判断视频记录是否存在
@@ -95,14 +95,13 @@ public class DBUtils {
         boolean hasVideo = false;
         String sql = "SELECT * FROM "+ SQLiteHelper.U_VIDEO_PLAY_LIST
                 + " WHERE chapterId=? AND videoId=? AND userName=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{chapterId + "",
-        videoId + "", userName});
+        Cursor cursor = db.rawQuery(sql, new String[]{ chapterId + "",
+                videoId + "" , userName});
         if (cursor.moveToFirst()){
             hasVideo = true;
         }
         cursor.close();
         return hasVideo;
-
     }
     /**
      * 删除已经存在的视频记录
@@ -110,8 +109,8 @@ public class DBUtils {
     public boolean delVideoPlay(int chapterId, int videoId,String userName){
         boolean delSuccess=false;
         int row = db.delete(SQLiteHelper.U_VIDEO_PLAY_LIST,
-                "chapterId=? AND videoId=? AND userName=?",new String[]{chapterId+"",
-                videoId + "", userName});
+                " chapterId=? AND videoId=? AND userName=?",new String[]{ chapterId+ "",
+                         videoId + "", userName});
         if (row > 0){
             delSuccess=true;
         }

@@ -59,5 +59,6 @@ public class PlayHistoryActivity extends AppCompatActivity {
                 PlayHistoryActivity.this.finish();
             }
         });
+
     }
 }

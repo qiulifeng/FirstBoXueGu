@@ -22,22 +22,22 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + U_USERINFO+"("
+        db.execSQL("CREATE TABLE  IF NOT EXISTS " + U_USERINFO +"( "
         + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        +"userName VARCHAR,"//用户名
-        +"nickName VARCHAR,"//昵称
-        +"sex VARCHAR,"//性别
-         +"signature VARCHAR"//签名
+        + "userName VARCHAR,"//用户名
+        + "nickName VARCHAR,"//昵称
+        + "sex VARCHAR,"
+         + "signature VARCHAR"//签名
         +")");
         //创建视频播放记录表
-        db.execSQL("CREATE TABLE IF NOT EXISTS "+U_VIDEO_PLAY_LIST+"("
+        db.execSQL("CREATE TABLE  IF NOT EXISTS "+ U_VIDEO_PLAY_LIST +"("
         + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +"userName VARCHAR,"//用户名
-                +"chapterId INT，"//章节ID号
-                +"videoId INT，"//小节ID号
-                +"videoPath VARCHAR,"//视频地址
-                +"title VARCHAR,"//视频章节名称
-                +"secondTitle VARCHAR"//视频名称
+                + "userName VARCHAR, "//用户名
+                + "chapterId INT, "//章节ID号
+                + "videoId INT, "//小节ID号
+                + "videoPath VARCHAR, "//视频地址
+                + "title VARCHAR, "//视频章节名称
+                + "secondTitle VARCHAR"//视频名称
         +")");
     }
 
@@ -49,8 +49,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS" + U_USERINFO);
-        db.execSQL("DROP TABLE IF EXISTS" + U_VIDEO_PLAY_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + U_USERINFO);
+        db.execSQL("DROP TABLE IF EXISTS " + U_VIDEO_PLAY_LIST);
         onCreate(db);
 
     }
