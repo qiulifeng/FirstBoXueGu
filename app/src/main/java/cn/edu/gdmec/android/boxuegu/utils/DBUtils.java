@@ -102,6 +102,7 @@ public class DBUtils {
         }
         cursor.close();
         return hasVideo;
+
     }
     /**
      * 删除已经存在的视频记录
