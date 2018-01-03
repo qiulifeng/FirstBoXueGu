@@ -127,7 +127,7 @@ private void setListener(){
             bdSignature.putString("content", signature);//传递界面上的签名数据
             bdSignature.putString("title","签名");
             bdSignature.putInt("flag",2);//flag传递2表示是修改签名
-            enterActivityForResult(ChangeUserInfoActivity.class, CHANGE_NICKNAME, bdSignature);
+            enterActivityForResult(ChangeUserInfoActivity.class, CHANGE_SIGNATURE, bdSignature);
             //跳转到个人资料修改界面
             break;
         default:
