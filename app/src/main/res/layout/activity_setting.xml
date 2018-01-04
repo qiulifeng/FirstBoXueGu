@@ -22,7 +22,7 @@
         android:background="#E3E3E3"></View>
 
     <RelativeLayout
-        android:id="@+id/rl_modify_psw"
+        android:id="@+id/rl_modiy_psw"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#F7F8F8"
@@ -49,7 +49,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_security_seting"
+        android:id="@+id/rl_security_setting"
         android:background="#F7F8F8"
         android:gravity="center_horizontal"
         android:paddingLeft="10dp"

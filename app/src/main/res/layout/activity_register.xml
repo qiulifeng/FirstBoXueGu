@@ -53,7 +53,7 @@
         android:textSize="14sp"/>
 
     <EditText
-        android:id="@+id/et_pwd_again"
+        android:id="@+id/et_psw_again"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
         android:background="@drawable/register_psw_again_bg"
