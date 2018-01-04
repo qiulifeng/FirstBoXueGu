@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
@@ -28,6 +32,7 @@ public class MyInfoView {
     private RelativeLayout rl_course_history,rl_setting;
     private TextView tv_user_name;
     private ImageView iv_head_icon;
+    private  String path = "/sdcard/myHead/head.jpg";
 
     public MyInfoView(Activity context) {
         mContext = context;
@@ -96,6 +101,11 @@ public class MyInfoView {
     public void setLoginParams(boolean isLogin) {
         if (isLogin){
             tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
+            File file = new File(path);
+                        if (file.exists()){
+                                Bitmap bm = BitmapFactory.decodeFile(path);
+                                iv_head_icon.setImageBitmap(bm);
+                            }
         }else {
             tv_user_name.setText("点击登录");
         }
