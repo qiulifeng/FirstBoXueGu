@@ -325,13 +325,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                     } catch (FileNotFoundException e) {
                        e.printStackTrace();
                     } finally {
-                        try {
-                                // 关闭流
-                                        b.flush();
-                                b.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+
                     }
             }
 

@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,11 +24,11 @@ import cn.edu.gdmec.android.boxuegu.bean.CourseBean;
  */
 
 public class CourseAdapter extends BaseAdapter {
-    private Context context;
+    private Activity context;
     private List<List<CourseBean>> cb1;
 
 
-    public CourseAdapter(Context context) {
+    public CourseAdapter(Activity context) {
         this.context = context;
 
     }
@@ -96,8 +97,8 @@ public class CourseAdapter extends BaseAdapter {
                                     intent.putExtra("intro", bean.intro);
                                     context.startActivity(intent);
                                 }else {
-                                    //Intent intent = new Intent(context, LoginActivity.class);
-                                    //context.startActivity(intent);
+                                    Intent intent = new Intent(context, LoginActivity.class);
+                                    context.startActivityForResult(intent,1);
                                     Toast.makeText(context, "你还未登录，请先登录", Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -119,8 +120,8 @@ public class CourseAdapter extends BaseAdapter {
                                     intent.putExtra("intro", bean.intro);
                                     context.startActivity(intent);
                                 }else {
-                                    //Intent intent = new Intent(context, LoginActivity.class);
-                                    //context.startActivity(intent);
+                                    Intent intent = new Intent(context, LoginActivity.class);
+                                    context.startActivityForResult(intent,1);
                                     Toast.makeText(context, "你还未登录，请先登录", Toast.LENGTH_SHORT).show();
                                 }
                             }

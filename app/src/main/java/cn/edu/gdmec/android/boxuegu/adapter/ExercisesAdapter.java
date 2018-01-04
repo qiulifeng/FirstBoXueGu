@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,9 +23,9 @@ import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
  */
 
 public class ExercisesAdapter extends BaseAdapter {
-    private Context mContext;
+    private Activity mContext;
     private List<ExercisesBean> ebl;
-    public ExercisesAdapter(Context context){
+    public ExercisesAdapter(Activity context){
         this.mContext = context;
     }
     public void setData(List<ExercisesBean> ebl){
@@ -78,8 +79,9 @@ public class ExercisesAdapter extends BaseAdapter {
                     intent.putExtra("id", bean.id);
                     mContext.startActivity(intent);
                 }else {
-                    //Intent intent = new Intent(mContext, LoginActivity.class);
-                    //mContext.startActivity(intent);
+                    Intent intent = new Intent(mContext, LoginActivity.class);
+                    //带回用户名
+                    mContext.startActivityForResult(intent,1);
                     Toast.makeText(mContext, "你还未登录，请先登录", Toast.LENGTH_SHORT).show();
 
                 }
